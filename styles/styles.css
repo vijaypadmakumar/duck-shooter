@@ -1,0 +1,30 @@
+body {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  margin: 0px;
+}
+
+header {
+  padding: 3%;
+}
+
+#play-area {
+  position: relative;
+  cursor: url("gun.png"), pointer;
+}
+
+#background #duck {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 5%;
+  max-height: 5%;
+}
+
+#gun {
+  max-width: 5%;
+  max-height: 5%;
+}
+
+.cursor {
+}
