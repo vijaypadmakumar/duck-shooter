@@ -1,10 +1,18 @@
-var level = 1;
+var level = 0;
+var shotsFired = 0;
 
 $("#duck").on("click", function () {
-  $("h3").text("Points " + level++);
+  level++;
+  $("h3").text("Points " + level);
   randomPostion();
-  var audio = new Audio("./sounds/gun.mp3");
-  audio.play();
+  playAudio("duck-sound");
+  //   gameOver(level);
+});
+
+$("#play-area").on("click", function () {
+  playAudio("gun");
+  shotsFired++;
+  //   gameOver(shotsFired);
 });
 
 function randomPostion() {
@@ -12,4 +20,24 @@ function randomPostion() {
   var randomWidth = Math.floor(Math.random() * 1700) + 10;
   $("#duck").css("top", randomHeight);
   $("#duck").css("left", randomWidth);
+}
+
+function playAudio(name) {
+  var audio = new Audio("./sounds/" + name + ".mp3");
+  audio.play();
+}
+
+function gameOver(level) {
+  if (level === 10 || shotsFired === 10) {
+    $("#play-area").off();
+    $("#duck").off();
+    $("h3").addClass("game-over");
+    setTimeout(function () {
+      $("h3").removeClass("game-over");
+    }, 500);
+
+    var accurary = Math.floor((level / shotsFired) * 100);
+
+    $("h3").text("Accuracy : " + accurary + "\n" + " Ducks killed : " + level);
+  }
 }
