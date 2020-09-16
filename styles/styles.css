@@ -15,8 +15,8 @@ header {
 
 #background #duck {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
   max-width: 5%;
   max-height: 5%;
 }
@@ -26,5 +26,12 @@ header {
   max-height: 5%;
 }
 
-.cursor {
+.game-over {
+  color: red;
 }
+
+/*
+add more birds after diff levels
+if not shot in a few seconds remove bird
+missed shots
+*/
