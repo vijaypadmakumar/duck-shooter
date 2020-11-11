@@ -1,7 +1,8 @@
 var level = 1;
 
 $("#duck").on("click", function () {
-  $("h3").text("Points " + level++);
+  level += 1;
+  $("h3").text("Points " + level);
   randomPostion();
   var audio = new Audio("./sounds/gun.mp3");
   audio.play();
